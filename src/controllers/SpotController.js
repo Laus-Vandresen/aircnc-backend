@@ -10,7 +10,6 @@ module.exports = {
     },
 
     async store(req,res) {
-        console.log(req.file);
         const { filename } = req.file;
         const { company, techs, price } = req.body;
         const { user_id } = req.headers;
@@ -26,7 +25,7 @@ module.exports = {
             company,
             techs: techs.split(',').map(tech => tech.trim()),
             price,
-        })
+        });
 
         return res.json(spot);
     }
